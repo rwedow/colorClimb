@@ -11,7 +11,6 @@ public class BasicMovement : MonoBehaviour
     {
         //initializting the variables for different animation states
         animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
-        //animator.SetFloat("Vertical", Input.GetAxis("Vertical"));
         animator.SetBool("IsMovingLeft", Input.GetKeyDown(KeyCode.LeftArrow));
         animator.SetBool("IsMovingRight", Input.GetKeyDown(KeyCode.RightArrow));
         animator.SetBool("IsMoving", (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow)));
