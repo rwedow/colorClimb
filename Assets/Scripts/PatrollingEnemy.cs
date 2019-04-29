@@ -26,6 +26,7 @@ public class PatrollingEnemy : MonoBehaviour
         //check if hit - print debug log statement
         if (Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.down)))
         {
+            //just a test
             //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward), Color.yellow);
             //Debug.Log("Did Hit");
         }
