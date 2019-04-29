@@ -5,20 +5,27 @@ using UnityEngine;
 
 public class PatrollingEnemy : MonoBehaviour
 {
+    public int health;
     public float speed;
     private bool movingRight = true;
     public Transform groundDetection;
+    private Animator anim;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
+        anim.SetBool("IsRunning", true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (health <= 0) {
+            Destroy(gameObject); //change later
+        }
+
         transform.Translate(Vector2.right * speed * Time.deltaTime);
 
         RaycastHit2D ray = Physics2D.Raycast(groundDetection.position, Vector2.down, 1000f);
@@ -36,7 +43,7 @@ public class PatrollingEnemy : MonoBehaviour
             {
                 transform.eulerAngles = new Vector3(0, -180, 0);
                 movingRight = false;
-                Debug.Log("***************************************\n\n\n\n");
+                //Debug.Log("***************************************\n\n\n\n");
             }
             else
             {
@@ -44,5 +51,10 @@ public class PatrollingEnemy : MonoBehaviour
                 movingRight = true;
             }
         }
+    }
+
+    public void TakeDamage(int damage) {
+        health -= damage;
+        Debug.Log("damage TAKEN!");
     }
 }
