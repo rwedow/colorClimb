@@ -6,15 +6,15 @@ public class RainAttack : MonoBehaviour {
     private float timeBtwAttack;
     public float startTimeBtwAttack;
 
-    public Transform attackPos;
+    public Transform attackPosition;
     public float attackRange;
-    public LayerMask whatIsEnemies;
+    public LayerMask whatIsEnemy;
     public int damage;
 
     void Update() {
         if (timeBtwAttack <= 0) {
             if (Input.GetKey(KeyCode.LeftShift)) {
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, whatIsEnemy);
                 for (int i = 0; i < enemiesToDamage.Length; i++ ) {
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                 }
@@ -27,6 +27,6 @@ public class RainAttack : MonoBehaviour {
 
     void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPos.position, attackRange);
+        Gizmos.DrawWireSphere(attackPosition.position, attackRange);
     }
 }
