@@ -28,8 +28,7 @@ public class BetterJump : MonoBehaviour {
         //float acceleration = Input.GetAxis("Vertical");
         animator.SetFloat("LastVel", acceleration);
 
-        if (acceleration > 0)
-        {
+        if (acceleration > 0) {
             animator.SetBool("UpJump", true);
         } else if (acceleration < 0) {
             animator.SetBool("UpJump", false);
