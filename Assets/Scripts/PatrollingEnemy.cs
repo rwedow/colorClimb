@@ -31,8 +31,7 @@ public class PatrollingEnemy : MonoBehaviour
             //Debug.Log("Did Hit");
         }
         //if ray has not collided with anything, time to turn around
-        if (ray.collider == false)
-        {
+        if (ray.collider == false) {
             if(movingRight == true)
             {
                 transform.eulerAngles = new Vector3(0, -180, 0);
