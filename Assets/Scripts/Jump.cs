@@ -4,13 +4,30 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-    [Range(1, 10)]
-    public float jumpVelocity;
+    public float jumpVelocity = 10;
 
-    private void Update()
+    public LayerMask groundLayer;
+
+    bool IsGrounded()
     {
+        Vector2 position = transform.position;
+        Vector2 direction = Vector2.down;
+        float distance = 7.28f;
+
+        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
+        if (hit.collider != null)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private void Update() {
         if (Input.GetButtonDown("Jump")) {
-            GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVelocity;
+            if (IsGrounded()) {
+                GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVelocity;
+            }
         }
     }
 }
