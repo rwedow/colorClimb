@@ -9,7 +9,7 @@ using Pathfinding;
 
 public class enemyAI : MonoBehaviour
 {
-
+//floating
     public Transform target;
     public float updateRate = 2f;
 
