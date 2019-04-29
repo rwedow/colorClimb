@@ -7,7 +7,8 @@ public class PatrollingEnemy : MonoBehaviour
 {
     public int health;
     public float speed;
-    private bool movingRight = true;
+    public bool movingRight = true;
+    private bool turnedAround = false;
     public Transform groundDetection;
     private Animator anim;
 
@@ -43,12 +44,24 @@ public class PatrollingEnemy : MonoBehaviour
             {
                 transform.eulerAngles = new Vector3(0, -180, 0);
                 movingRight = false;
+                turnedAround = false;
                 //Debug.Log("***************************************\n\n\n\n");
             }
             else
             {
                 transform.eulerAngles = new Vector3(0, 0, 0);
                 movingRight = true;
+                turnedAround = false;
+            }
+        }
+
+        if(movingRight) {
+            if(!turnedAround) {
+                FlipHorizontal();
+            }
+        } else {
+            if(!turnedAround) {
+                FlipHorizontal();
             }
         }
     }
@@ -56,5 +69,12 @@ public class PatrollingEnemy : MonoBehaviour
     public void TakeDamage(int damage) {
         health -= damage;
         Debug.Log("damage TAKEN!");
+    }
+
+    void FlipHorizontal () {
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+        turnedAround = true;
     }
 }
