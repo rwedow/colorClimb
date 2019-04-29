@@ -1,18 +1,12 @@
 fileFormatVersion: 2
 guid: 0e8e8b94b53d93342991b8ab7526e303
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 8483826478277701795
-    second: cc tiles paint_0
-  - first:
-      213: 6317055379809118265
-    second: cc tiles paint_1
-  - first:
-      213: 319150526816602850
-    second: cc tiles paint_2
+  fileIDToRecycleName:
+    21300000: cc tiles paint_0
+    21300002: cc tiles paint_1
+    21300004: cc tiles paint_2
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -119,7 +113,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 60475f3219a794e41a483a098a60e6a2
-      internalID: 8483826478277701795
       vertices: []
       indices: 
       edges: []
@@ -140,7 +133,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a3b5a838e0f6b774db1ee2afab9d4bc6
-      internalID: 6317055379809118265
       vertices: []
       indices: 
       edges: []
@@ -161,7 +153,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 434b77add99981645af374c0ba4e708c
-      internalID: 319150526816602850
       vertices: []
       indices: 
       edges: []
@@ -170,12 +161,10 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 36d89ee1eeb8b3143bf49b31c03cd3d5
-    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
