@@ -6,7 +6,7 @@ public class CloudStorm : MonoBehaviour
 {
     public bool cloudEnter = false;
     public Transform moveCloud;
-    float interval = 4;
+    float interval = 3;
 
     //private bool isRaining = false;
     //bool startRaining = GameObject.GetComponent<Rain>().startRaining;
@@ -22,7 +22,7 @@ public class CloudStorm : MonoBehaviour
                 if (interval > 0) {
                     interval -= Time.deltaTime;
                 } else {
-                    interval = 5;
+                    interval = 8;
                     cloudEnter = false;
                 }
             }
@@ -35,7 +35,7 @@ public class CloudStorm : MonoBehaviour
                 if (interval > 0) {
                     interval -= Time.deltaTime;
                 } else {
-                    interval = 5;
+                    interval = 3;
                     cloudEnter = true;
                 }
             }
