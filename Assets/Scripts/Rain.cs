@@ -25,4 +25,10 @@ public class Rain : MonoBehaviour
             health -= damage;
         }
     }
+
+    public void PickUpCan(int canSize)
+    {
+        Debug.Log("Got Paint (Size: " + canSize + ")");
+        points += canSize;
+    }
 }

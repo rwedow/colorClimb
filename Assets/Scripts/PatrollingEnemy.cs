@@ -23,15 +23,16 @@ public class PatrollingEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0) {
+        if (health <= 0 || transform.position.y < -10.0) {
             Destroy(gameObject); //change later
         }
 
         transform.Translate(Vector2.right * speed * Time.deltaTime);
 
-        RaycastHit2D ray = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.5f);
+        RaycastHit2D ray = Physics2D.Raycast(groundDetection.position, Vector2.down, 1.5f);
 
         //check if hit - print debug log statement
+
         if (Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.down)))
         {
             //just a test

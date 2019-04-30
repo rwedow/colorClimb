@@ -5,7 +5,7 @@ using UnityEngine;
 public class Jump : MonoBehaviour
 {
     public Animator animator;
-    public float jumpVelocity = 10;
+    public float jumpVelocity = 15;
 
     public LayerMask groundLayer;
 
