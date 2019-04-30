@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BetterJump : MonoBehaviour {
 
+    public Animator animator;
+
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
 
@@ -20,5 +22,17 @@ public class BetterJump : MonoBehaviour {
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
+
+
+        float acceleration = rb.velocity.y;
+        //float acceleration = Input.GetAxis("Vertical");
+        animator.SetFloat("LastVel", acceleration);
+
+        if (acceleration > 0) {
+            animator.SetBool("UpJump", true);
+        } else if (acceleration < 0) {
+            animator.SetBool("UpJump", false);
+        }
+
     }
 }
