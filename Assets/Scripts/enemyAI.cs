@@ -69,7 +69,7 @@ public class enemyAI : MonoBehaviour
         }
 
         seeker.StartPath(transform.position, target.position, OnPathComplete);
-        Debug.Log("starting path");
+        // Debug.Log("starting path");
 
         //the more we wait the shorter the update rate time is
         yield return new WaitForSeconds(1f/updateRate);
@@ -91,7 +91,7 @@ public class enemyAI : MonoBehaviour
     {
         //just checking if path is successful
         //if it is ok, set curr path to the path that it found
-        Debug.Log("We got a path. Did it have an error?" + p.error);
+        // Debug.Log("We got a path. Did it have an error?" + p.error);
         if (!p.error)
         {
             path = p;
