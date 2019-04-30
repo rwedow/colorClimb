@@ -7,10 +7,11 @@ public class PaintCan : MonoBehaviour
     // Start is called before the first frame update
     int canSize;
     public Sprite[] canSprite;
+    public LayerMask whatIsRain;
 
     void Start()
     {
-
+        whatIsRain = 10;
         canSize = Random.Range(1, 4);
         Debug.Log(canSize);
         gameObject.GetComponent<SpriteRenderer>().sprite = canSprite[canSize];
@@ -26,7 +27,10 @@ public class PaintCan : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        col.gameObject.SendMessage("PickUpCan", canSize, SendMessageOptions.DontRequireReceiver);
-        Destroy(gameObject);
+        //Debug.Log("On layer " + col.gameObject.layer);
+        if (col.gameObject.layer == whatIsRain) { 
+            col.gameObject.SendMessage("PickUpCan", canSize, SendMessageOptions.DontRequireReceiver);
+            Destroy(gameObject);
+        }
     }
 }
