@@ -14,12 +14,12 @@ public class CloudStorm : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if (cloudEnter) {
-            if (transform.position.y > 45)
+            if (transform.position.x < 0)
             {
                 Vector3 newVec = transform.position;
-                newVec.y -= 1;
+                newVec.x += 1;
                 transform.position = newVec;
-            } else if (transform.position.y < 46) {
+            } else if (transform.position.x > -1) {
                 if (interval > 0) {
                     interval -= Time.deltaTime;
                 } else {
@@ -28,10 +28,10 @@ public class CloudStorm : MonoBehaviour
                 }
             }
         } else {
-            if (transform.position.y < 100)
+            if (transform.position.x > -100)
             {
                 Vector3 newVec = transform.position;
-                newVec.y += 1;
+                newVec.x -= 1;
                 transform.position = newVec;
             }
         }
