@@ -11,6 +11,7 @@ public class Rain : MonoBehaviour
     private float startPoints = 0;
     private float points;
     public Animator anim;
+    public int[] paintColors;
 
     public Image healthBar;
     public Image pointsBar;
@@ -33,11 +34,10 @@ public class Rain : MonoBehaviour
         }
     }
 
-    public void GetPoints(int newPoints) {
-        points += newPoints;
-        pointsBar.fillAmount = points;
+    public void PickUpCan(int canSize) {
+        Debug.Log("Got Paint (Size: " + canSize + ")");
+        points += 1;
+        pointsBar.fillAmount = points / 20;
     }
 
-    //add get paint bucket here
-    //paintBar.fillAmount = points;
 }
