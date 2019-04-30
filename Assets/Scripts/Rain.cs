@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Rain : MonoBehaviour
 {
+
+    public int health;
+    public int points;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -11,8 +15,6 @@ public class Rain : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
     }
 }

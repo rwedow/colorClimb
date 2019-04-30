@@ -66,20 +66,19 @@ public class PatrollingEnemy : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collider other)
-    {
-        RaycastHit2D playerDetect = Physics2D.Raycast(groundDetection.position, Vector2.right, 1000f);
-        if (other.tag == "Player")
-        {
-            Debug.Log("PLAYER HIT");
-            //create health aspect in player script
-            //Playerscript.playerhealth -= 1;
-        }
-    }
+    //void OnCollisionEnter(Collider other)
+    //{
+    //    RaycastHit2D playerDetect = Physics2D.Raycast(groundDetection.position, Vector2.right, 1000f);
+    //    if (other.tag == "Player")
+    //    {
+    //        Debug.Log("PLAYER HIT");
+    //        //create health aspect in player script
+    //        //Playerscript.playerhealth -= 1;
+    //    }
+    //}
 
     public void TakeDamage(int damage) {
         health -= damage;
-        Debug.Log("damage TAKEN!");
     }
 
     void FlipHorizontal () {
