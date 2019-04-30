@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Rain : MonoBehaviour
 {
 
-    public int health;
-    public int points;
+    private float startHealth = 100;
+    private float health;
+    private float startPoints = 0;
+    private float points;
     public Animator anim;
+    public int[] paintColors;
+
+    public Image healthBar;
+    public Image pointsBar;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = startHealth;
+        points = startPoints;
     }
 
     // Update is called once per frame
@@ -21,8 +29,15 @@ public class Rain : MonoBehaviour
 
     public void TakeDamage(int damage) {
         if (!anim.GetBool("Umbrella")) {
-            Debug.Log("OUCH");
             health -= damage;
+            healthBar.fillAmount = health / startHealth;
         }
     }
+
+    public void PickUpCan(int canSize) {
+        Debug.Log("Got Paint (Size: " + canSize + ")");
+        points += 1;
+        pointsBar.fillAmount = points / 20;
+    }
+
 }
