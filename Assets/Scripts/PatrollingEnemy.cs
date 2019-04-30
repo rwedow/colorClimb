@@ -1,4 +1,4 @@
-﻿
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,12 +21,11 @@ public class PatrollingEnemy : MonoBehaviour
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
 
-        RaycastHit2D ray = Physics2D.Raycast(groundDetection.position, Vector2.down, 1000f);
+        RaycastHit2D ray = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.5f);
 
         //check if hit - print debug log statement
         if (Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.down)))
         {
-            //just a test
             //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward), Color.yellow);
             //Debug.Log("Did Hit");
         }
@@ -44,6 +43,18 @@ public class PatrollingEnemy : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
                 movingRight = true;
             }
+        }//end if statement
+    }//end Update
+
+    void OnCollisionEnter(Collider other)
+    {
+        RaycastHit2D playerDetect = Physics2D.Raycast(groundDetection.position, Vector2.right, 1000f);
+        if (other.tag == "Player")
+        {
+            Debug.Log("PLAYER HIT");
+            //create health aspect in player script
+            //Playerscript.playerhealth -= 1;
         }
     }
-}
+
+}//end PatrollingEnemy class
