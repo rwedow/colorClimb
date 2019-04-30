@@ -705,8 +705,8 @@ namespace Pathfinding {
 			// text.Append("Searched Nodes ").Append(searchedNodes);
 
 			if (!error) {
-				text.Append(" Path Length ");
-				text.Append(path == null ? "Null" : path.Count.ToString());
+				// text.Append(" Path Length ");
+				// text.Append(path == null ? "Null" : path.Count.ToString());
 			}
 		}
 
@@ -727,7 +727,7 @@ namespace Pathfinding {
 				else text.AppendLine("NULL");
 			}
 
-			text.Append("\nPath Number ").Append(pathID).Append(" (unique id)");
+			// text.Append("\nPath Number ").Append(pathID).Append(" (unique id)");
 		}
 
 		/// <summary>

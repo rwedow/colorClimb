@@ -12,6 +12,7 @@ public class Rain : MonoBehaviour
     private float points;
     public Animator anim;
     public int[] paintColors;
+    public bool isDead = false;
 
     public Image healthBar;
     public Image pointsBar;
@@ -33,6 +34,9 @@ public class Rain : MonoBehaviour
         if (!anim.GetBool("Umbrella")) {
             health -= damage;
             healthBar.fillAmount = health / startHealth;
+        }
+        if (health <= 0) {
+            isDead = true;
         }
     }
 
