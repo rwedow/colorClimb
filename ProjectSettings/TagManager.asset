@@ -41,6 +41,9 @@ TagManager:
   - name: Background
     uniqueID: 3621528077
     locked: 0
+  - name: Player
+    uniqueID: 1962246271
+    locked: 0
   - name: Platforms
     uniqueID: 3364987311
     locked: 0
@@ -49,4 +52,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer
+    uniqueID: 1818913859
     locked: 0

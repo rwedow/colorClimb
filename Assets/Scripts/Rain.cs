@@ -12,6 +12,7 @@ public class Rain : MonoBehaviour
     private float points;
     public Animator anim;
     public int[] paintColors;
+    public bool isDead = false;
 
     public Image healthBar;
     public Image pointsBar;
@@ -21,10 +22,12 @@ public class Rain : MonoBehaviour
     {
         health = startHealth;
         points = startPoints;
+        
     }
 
     // Update is called once per frame
     void Update() {
+        GetComponent<Transform>().SetPositionAndRotation(GetComponent<Transform>().position, new Quaternion());
     }
 
     public void TakeDamage(int damage) {
@@ -32,12 +35,16 @@ public class Rain : MonoBehaviour
             health -= damage;
             healthBar.fillAmount = health / startHealth;
         }
+        if (health <= 0) {
+            isDead = true;
+        }
     }
 
     public void PickUpCan(int canSize) {
         Debug.Log("Got Paint (Size: " + canSize + ")");
-        points += 1;
-        pointsBar.fillAmount = points / 20;
+        health += 1;
+        healthBar.fillAmount = health / startHealth;
+        points++;
     }
 
 }

@@ -13,6 +13,10 @@ public class enemyAI : MonoBehaviour
     public Transform target;
     public float updateRate = 2f;
 
+    public float karlRange;
+    public LayerMask whoIsRain;
+    public int damage;
+
     private Seeker seeker;
     private Rigidbody2D rb;
 
@@ -65,6 +69,7 @@ public class enemyAI : MonoBehaviour
         }
 
         seeker.StartPath(transform.position, target.position, OnPathComplete);
+        // Debug.Log("starting path");
 
         //the more we wait the shorter the update rate time is
         yield return new WaitForSeconds(1f/updateRate);
@@ -75,14 +80,18 @@ public class enemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Collider2D[] playerDamage = Physics2D.OverlapCircleAll(transform.position, karlRange, whoIsRain);
+        for (int i = 0; i < playerDamage.Length; i++)
+        {
+            playerDamage[i].GetComponent<Rain>().TakeDamage(damage);
+        }
     }//end Update
 
     public void OnPathComplete(Path p)
     {
         //just checking if path is successful
         //if it is ok, set curr path to the path that it found
-        Debug.Log("We got a path. Did it have an error?" + p.error);
+        // Debug.Log("We got a path. Did it have an error?" + p.error);
         if (!p.error)
         {
             path = p;
@@ -139,6 +148,11 @@ public class enemyAI : MonoBehaviour
         
     }//end FixedUpdate
 
-    
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, karlRange);
+    }
+
 
 }//end class

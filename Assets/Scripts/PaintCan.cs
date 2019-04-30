@@ -30,7 +30,7 @@ public class PaintCan : MonoBehaviour
         {
             //int [] info = { canColor, canSize };
             //col.gameObject.SendMessage("PickUpCan", info, SendMessageOptions.DontRequireReceiver);
-            Debug.Log(canColor);
+            Debug.Log("gotCan");
             col.gameObject.SendMessage("PickUpCan", canColor, SendMessageOptions.DontRequireReceiver);
             Destroy(gameObject);
         }
