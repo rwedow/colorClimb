@@ -12,7 +12,8 @@ public class Rain : MonoBehaviour
     private float points;
     public Animator anim;
     public int[] paintColors;
-    public bool isDead = false;
+    public bool isDead;
+    //= false;
 
     public Image healthBar;
     public Image pointsBar;
@@ -22,7 +23,7 @@ public class Rain : MonoBehaviour
     {
         health = startHealth;
         points = startPoints;
-        
+        isDead = false;
     }
 
     // Update is called once per frame

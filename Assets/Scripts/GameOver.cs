@@ -12,7 +12,7 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //script = GetComponent<Rain>();
+        script = GetComponent<Rain>();
 
         if (script.isDead == true)
         {
